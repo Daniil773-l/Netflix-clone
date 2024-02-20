@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="Appp.css">
+  <title>Netflix Sign Up</title>
+</head>
+<body>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@17.0.2/umd/react.production.min.js"></script>
+  <script src="https://unpkg.com/react-dom@17.0.2/umd/react-dom.production.min.js"></script>
+  <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+
+  <script type="text/babel">
+    function navigateToPage(page) {
+      window.location.href = page;
+    }
+
+    function App() {
+      const [email, setEmail] = React.useState('');
+      const [password, setPassword] = React.useState('');
+
+      const handleEmailChange = (e) => {
+        setEmail(e.target.value);
+      };
+
+      const handlePasswordChange = (e) => {
+        setPassword(e.target.value);
+      };
+
+      const handleSubmit = (e) => {
+        e.preventDefault();
+        // Perform login logic here
+        console.log('Email:', email);
+        console.log('Password:', password);
+      };
+
+      return (
+        <div className="App">
+          <div className="header">
+            <img className="logo" src="./logo.png" alt="logo" />
+          </div>
+          <div className="login-container">
+            <h1>Welcome Back!</h1>
+            <form className="login-form" onSubmit={handleSubmit}>
+              <input
+                type="email"
+                placeholder="Email address"
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+              <input
+                type="password"
+                placeholder="Password"
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+              <button type="submit">Sign In</button>
+            </form>
+          </div>
+        </div>
+      );
+    }
+
+    ReactDOM.render(<App />, document.getElementById('root'));
+  </script>
+
+  <footer>
+    <div class="footer">
+      <h2>Questions? Call 000-000-000-0000</h2>
+
+      <div class="row">
+        <div class="col">
+          <a href="#">FAQ</a>
+          <a href="#">Investor Relations</a>
+          <a href="#">Privacy</a>
+          <a href="#">Speed Test</a>
+        </div>
+        <div class="col">
+          <a href="#">Help Centre</a>
+          <a href="#">Jobs</a>
+          <a href="#">Cookie Preferences</a>
+          <a href="#">Legal Notices</a>
+        </div>
+        <div class="col">
+          <a href="#">Account</a>
+          <a href="#">Ways to Watch</a>
+          <a href="#">Corporate Information</a>
+          <a href="#">Only on Netflix</a>
+        </div>
+        <div class="col">
+          <a href="#">Media Centre</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+
+      <button class="lang-btn"><i class="fa-solid fa-globe"></i> English </button>
+
+      <p class="copyright-text">Netflix </p>
+    </div>
+    <p>&copy; 2023 Netflix</p>
+  </footer>
+</body>
+</html>
